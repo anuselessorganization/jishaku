@@ -625,7 +625,7 @@ class PaginatorInterface(ui.View):  # pylint: disable=too-many-instance-attribut
 
     def button_goto_label(self, _button: ui.Button[typing.Self]) -> str:
         """Label for selecting a page (constant)"""
-        return "\N{RIGHTWARDS ARROW WITH HOOK} \u200b Navigate to page"
+        return "\N{RIGHTWARDS ARROW WITH HOOK}"
 
     async def button_close_callback(self, interaction: discord.Interaction):  # pylint: disable=unused-argument
         """Button to close the interface"""
