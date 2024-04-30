@@ -84,7 +84,7 @@ class RootCommand(Feature):
                 with proc.oneshot():
                     try:
                         mem = proc.memory_full_info()
-                        summary.append(f">>> Using {natural_size(mem.rss)} physical memory and "
+                        summary.append(f"Using {natural_size(mem.rss)} physical memory and "
                                        f"{natural_size(mem.vms)} virtual memory, "
                                        f"{natural_size(mem.uss)} of which unique to this process.")
                     except psutil.AccessDenied:
