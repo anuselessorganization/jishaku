@@ -15,7 +15,7 @@
 </h1>
 <p align="center">
 <sup>
-a debugging and utility extension for discord.py bots
+a 𝒻𝓇𝑒𝒶𝓀𝓎 extension for discord.py bots
 </sup>
 <br>
 <sup>
