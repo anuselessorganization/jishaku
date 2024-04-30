@@ -124,7 +124,7 @@ class ShellFeature(Feature):
                     async def send_standard_input(interaction: discord.Interaction):
                         await interaction.response.send_modal(self.ShellStandardInputModal(reader))
 
-                    stdin_button = ui.Button(label="\N{KEYBOARD} Send standard input")
+                    stdin_button = ui.Button(label="\N{KEYBOARD} Send input")
                     stdin_button.callback = send_standard_input
 
                     interface = PaginatorInterface(ctx.bot, paginator, owner=ctx.author, additional_buttons=[stdin_button])

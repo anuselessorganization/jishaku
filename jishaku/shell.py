@@ -66,11 +66,11 @@ class ShellReader:
             # Check for powershell
             if pathlib.Path(r"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe").exists():
                 sequence = ['powershell', code]
-                self.ps1 = "PS >"
+                self.ps1 = ">"
                 self.highlight = "powershell"
             else:
                 sequence = ['cmd', '/c', code]
-                self.ps1 = "cmd >"
+                self.ps1 = ">"
                 self.highlight = "cmd"
             # Windows doesn't use ANSI codes
             self.escape_ansi = True
@@ -86,7 +86,7 @@ class ShellReader:
             import pty  # pylint: disable=import-outside-toplevel
 
             sequence = [SHELL, '-c', code]
-            self.ps1 = "$"
+            self.ps1 = ">"
             self.highlight = "ansi"
             self.escape_ansi = escape_ansi
 
