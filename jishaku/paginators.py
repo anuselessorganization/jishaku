@@ -592,7 +592,7 @@ class PaginatorInterface(ui.View):  # pylint: disable=too-many-instance-attribut
         """Endstop label for going to the last page (changes on page count)"""
         return f"{self.emojis.end} \u200b {self.page_count}"
 
-    class PageChangeModal(ui.Modal, title="Navigate to page"):
+    class PageChangeModal(ui.Modal):
         """Modal that prompts users for the page number to change to"""
 
         page_number: ui.TextInput[ui.Modal] = ui.TextInput(label="Page number", style=discord.TextStyle.short)
@@ -640,7 +640,7 @@ class PaginatorInterface(ui.View):  # pylint: disable=too-many-instance-attribut
 
     def button_close_label(self, _button: ui.Button[typing.Self]) -> str:
         """Label for closing the paginator (constant)"""
-        return f"{self.emojis.close} \u200b Close"
+        return f"{self.emojis.close}"
 
 
 class PaginatorEmbedInterface(PaginatorInterface):
