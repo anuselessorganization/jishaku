@@ -69,8 +69,8 @@ class RootCommand(Feature):
             dist_version = f'unknown `{discord.__version__}`'
 
         summary = [
-            f">>> Jishaku v{package_version('jishaku')}, {dist_version}, "
-            f"`Python {sys.version}` on `{sys.platform}`".replace("\n", ""),
+            f">>> 𝒻𝓇𝑒𝒶𝓀𝓎 jishaku v{package_version('jishaku')}, {dist_version}, "
+            f"`𝒻𝓇𝑒𝒶𝓀𝓎 python {sys.version}` on `{sys.platform}`".replace("\n", ""),
             f"Module was loaded <t:{self.load_time.timestamp():.0f}:R>, "
             f"cog was loaded <t:{self.start_time.timestamp():.0f}:R>.",
             ""
@@ -84,7 +84,7 @@ class RootCommand(Feature):
                 with proc.oneshot():
                     try:
                         mem = proc.memory_full_info()
-                        summary.append(f"Using {natural_size(mem.rss)} physical memory and "
+                        summary.append(f"Using {natural_size(mem.rss)} physical 𝒻𝓇𝑒𝒶𝓀𝓎 memory and "
                                        f"{natural_size(mem.vms)} virtual memory, "
                                        f"{natural_size(mem.uss)} of which unique to this process.")
                     except psutil.AccessDenied:
@@ -114,22 +114,22 @@ class RootCommand(Feature):
         if isinstance(self.bot, discord.AutoShardedClient):
             if len(self.bot.shards) > 20:
                 summary.append(
-                    f"This bot is automatically sharded ({len(self.bot.shards)} shards of {self.bot.shard_count})"
+                    f"This 𝒻𝓇𝑒𝒶𝓀𝓎 bot is automatically sharded ({len(self.bot.shards)} shards of {self.bot.shard_count})"
                     f" and can see {cache_summary}."
                 )
             else:
                 shard_ids = ', '.join(str(i) for i in self.bot.shards.keys())
                 summary.append(
-                    f"This bot is automatically sharded (Shards {shard_ids} of {self.bot.shard_count})"
+                    f"This 𝒻𝓇𝑒𝒶𝓀𝓎 bot is automatically sharded (Shards {shard_ids} of {self.bot.shard_count})"
                     f" and can see {cache_summary}."
                 )
         elif self.bot.shard_count:
             summary.append(
-                f"This bot is manually sharded (Shard {self.bot.shard_id} of {self.bot.shard_count})"
+                f"This 𝒻𝓇𝑒𝒶𝓀𝓎 bot is manually sharded (Shard {self.bot.shard_id} of {self.bot.shard_count})"
                 f" and can see {cache_summary}."
             )
         else:
-            summary.append(f"This bot is not sharded and can see {cache_summary}.")
+            summary.append(f"This 𝒻𝓇𝑒𝒶𝓀𝓎 bot is not sharded and can see {cache_summary}.")
 
         # pylint: disable=protected-access
         if self.bot._connection.max_messages:  # type: ignore
