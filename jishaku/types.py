@@ -15,6 +15,6 @@ import typing
 
 from discord.ext import commands
 
-BotT = typing.Union[commands.Bot, commands.AutoShardedBot]
-ContextT = typing.TypeVar('ContextT', commands.Context[commands.Bot], commands.Context[commands.AutoShardedBot])
+BotT = commands.Bot
+ContextT = typing.TypeVar('ContextT', commands.Context[commands.Bot], commands.Context[BotT])
 ContextA = commands.Context[BotT]

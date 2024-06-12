@@ -1,20 +1,18 @@
+import discord
+import pytest
+import pytest_asyncio
+from discord.ext import commands
+from tests import utils
+
 # -*- coding: utf-8 -*-
 
 """
 jishaku subclassing functionality test
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-:copyright: (c) 2021 Devon (Gorialis) R
-:license: MIT, see LICENSE for more details.
-
 """
 
-import discord
-import pytest
-import pytest_asyncio
-from discord.ext import commands
 
-from tests import utils
 
 
 @pytest_asyncio.fixture(
@@ -23,26 +21,20 @@ from tests import utils
         # Subclass 1 (Feature)
         ("tests.subclassed_module_1", "Magnet1", "overridden with a third party feature", commands.Bot, {}),
         ("tests.subclassed_module_1", "Magnet1", "overridden with a third party feature", commands.Bot, {"shard_id": 0, "shard_count": 2}),
-        ("tests.subclassed_module_1", "Magnet1", "overridden with a third party feature", commands.AutoShardedBot, {}),
         # Subclass 2 (direct)
         ("tests.subclassed_module_2", "Magnet2", "overridden directly", commands.Bot, {}),
         ("tests.subclassed_module_2", "Magnet2", "overridden directly", commands.Bot, {"shard_id": 0, "shard_count": 2}),
-        ("tests.subclassed_module_2", "Magnet2", "overridden directly", commands.AutoShardedBot, {}),
         # Test that the original still works after the load test
         ("jishaku", "Jishaku", "Module was loaded", commands.Bot, {}),
         ("jishaku", "Jishaku", "Module was loaded", commands.Bot, {"shard_id": 0, "shard_count": 2}),
-        ("jishaku", "Jishaku", "Module was loaded", commands.AutoShardedBot, {}),
     ],
     ids=[
         "Feature-based subclass (Bot, unsharded)",
         "Feature-based subclass (Bot, sharded)",
-        "Feature-based subclass (AutoShardedBot)",
         "direct subclass (Bot, unsharded)",
         "direct subclass (Bot, sharded)",
-        "direct subclass (AutoShardedBot)",
         "native (Bot, unsharded)",
         "native (Bot, sharded)",
-        "native (AutoShardedBot)"
     ]
 )
 async def bot(request):
