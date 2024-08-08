@@ -43,10 +43,11 @@ class ManagementFeature(Feature):
         """
 
 
-        if extensions == ["morespecific"]:
-            return await ctx.send("Please be more specific than `cogs.*`. I.E. `cogs.miscellaneous.*`")
             
         extensions: typing.Iterable[typing.List[str]] = extensions  # type: ignore
+        
+        if extensions == ["morespecific"]:
+            return await ctx.send("Please be more specific than `cogs.*`. I.E. `cogs.miscellaneous.*`")
 
         paginator = commands.Paginator(prefix='', suffix='')
 
