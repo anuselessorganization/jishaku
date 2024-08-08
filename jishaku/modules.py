@@ -77,7 +77,8 @@ def resolve_extensions(bot: BotT, name: str) -> typing.List[str]:
             path = pathlib.Path(*module_parts)
             exts.extend(find_extensions_in(path))
         elif ext == '~':
-            exts.extend(bot.extensions)
+            # exts.extend(bot.extensions)
+            return ["disabled"]
         else:
             exts.append(ext)
 

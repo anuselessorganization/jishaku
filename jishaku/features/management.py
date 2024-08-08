@@ -56,6 +56,8 @@ class ManagementFeature(Feature):
             if extension == "morespecific":
                 await ctx.send("Please be more specific than `cogs.*`. I.E. `cogs.miscellaneous.*`")
                 break
+            elif extension == "disabled":
+                await ctx.send("Reloading with `~` is disabled, please use it normally.")
 
             if "__init__" in extension:
                 continue
