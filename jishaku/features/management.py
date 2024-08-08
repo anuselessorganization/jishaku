@@ -51,6 +51,9 @@ class ManagementFeature(Feature):
             extensions = [['jishaku']]
 
         for extension in itertools.chain(*extensions):
+            if "__init__" in extension:
+                continue
+            
             method, icon = (
                 (self.bot.reload_extension, "\N{CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS}")
                 if extension in self.bot.extensions else
