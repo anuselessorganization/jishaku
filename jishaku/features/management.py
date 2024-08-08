@@ -46,9 +46,6 @@ class ManagementFeature(Feature):
             
         extensions: typing.Iterable[typing.List[str]] = extensions  # type: ignore
         
-        if extensions == ["morespecific"]:
-            return await ctx.send("Please be more specific than `cogs.*`. I.E. `cogs.miscellaneous.*`")
-
         paginator = commands.Paginator(prefix='', suffix='')
 
         # 'jsk reload' on its own just reloads jishaku
@@ -56,10 +53,12 @@ class ManagementFeature(Feature):
             extensions = [['jishaku']]
 
         for extension in itertools.chain(*extensions):
+            if extension == "morespecific":
+                await ctx.send("Please be more specific than `cogs.*`. I.E. `cogs.miscellaneous.*`")
+                break
+
             if "__init__" in extension:
                 continue
-
-            print(extension)
 
             method, icon = (
                 (self.bot.reload_extension, "\N{CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS}")
