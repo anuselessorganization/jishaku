@@ -58,6 +58,7 @@ class ManagementFeature(Feature):
                 break
             elif extension == "disabled":
                 await ctx.send("Reloading with `~` is disabled, please use it normally.")
+                break
 
             if "__init__" in extension:
                 continue
