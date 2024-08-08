@@ -69,6 +69,8 @@ def resolve_extensions(bot: BotT, name: str) -> typing.List[str]:
     """
 
     exts: typing.List[str] = []
+    if name == "cogs.*":
+        return ["morespecific"]
     for ext in braceexpand(name):
         if ext.endswith('.*'):
             module_parts = ext[:-2].split('.')

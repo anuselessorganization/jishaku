@@ -42,6 +42,10 @@ class ManagementFeature(Feature):
         Reports any extensions that failed to load.
         """
 
+
+        if extensions == ["morespecific"]:
+            return await ctx.send("Please be more specific than `cogs.*`. I.E. `cogs.miscellaneous.*`")
+            
         extensions: typing.Iterable[typing.List[str]] = extensions  # type: ignore
 
         paginator = commands.Paginator(prefix='', suffix='')
